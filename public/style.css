@@ -1,0 +1,159 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --error-bg: rgba(239, 68, 68, 0.15);
+  --error-border: rgba(239, 68, 68, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Esfera decorativa de fondo */
+.background-decor {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: var(--accent);
+  filter: blur(120px);
+  border-radius: 50%;
+  top: 20%;
+  left: 25%;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Tarjeta Principal (Glassmorphism) */
+.weather-container {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 32px;
+}
+
+/* Buscador */
+.search-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.search-box input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  padding: 14px 18px;
+  border-radius: 14px;
+  color: var(--text-main);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.search-box button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0 24px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-box button:hover {
+  background: var(--accent-hover);
+}
+
+/* Contenedores de Estado y Resultados */
+.hidden {
+  display: none !important;
+}
+
+.result-box {
+  animation: fadeIn 0.4s ease forwards;
+  text-align: center;
+  padding: 20px 0 10px 0;
+}
+
+.res-city {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.res-temp {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.res-desc {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #a7f3d0; /* Tono verde menta suave para el estado */
+}
+
+.error-box {
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  padding: 16px;
+  border-radius: 14px;
+  color: #fca5a5;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

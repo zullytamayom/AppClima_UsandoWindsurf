@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historias del Clima</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fuentes modernas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="background-decor"></div>
+  
+  <div class="weather-container">
+    <header>
+      <h1>Descubre el Clima</h1>
+      <p>Ingresa una ciudad para conocer el estado del tiempo actual</p>
+    </header>
+
+    <form id="weather-form" class="search-box">
+      <input 
+        type="text" 
+        id="city-input" 
+        placeholder="Ej. Bogotá, Tokio, Madrid..." 
+        autocomplete="off"
+        required
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <!-- Zona dinámica donde cargaremos los resultados con JS -->
+    <div id="result-container" class="result-box hidden">
+      <!-- Los datos se inyectarán aquí -->
+    </div>
+    
+    <!-- Zona dinámica para errores -->
+    <div id="error-container" class="error-box hidden">
+      <!-- Los errores se inyectarán aquí -->
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
